@@ -29,7 +29,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-module "blog_sg" {
+module "blog_sg2" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.16.2"
   name = "blog_new"
@@ -43,6 +43,7 @@ module "blog_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
 
 }
+
 
 resource "aws_security_group" "blog" {
   name        = "blog"
