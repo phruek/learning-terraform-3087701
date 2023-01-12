@@ -29,16 +29,6 @@ resource "aws_instance" "blog" {
   }
 }
 
-resource "aws_instance" "blog2" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = var.instance_type
-  
-  vpc_security_group_ids = [module.blog_sg2.security_group_id]
-
-  tags = {
-    Name = "HelloWorld"
-  }
-}
 
 module "blog_sg2" {
   source  = "terraform-aws-modules/security-group/aws"
